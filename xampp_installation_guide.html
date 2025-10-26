@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XAMPP Installation Guide - KSV Ticket System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #6200EA;
+            border-bottom: 2px solid #6200EA;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #6200EA;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #7E57C2;
+        }
+        .step {
+            background-color: #f5f5f5;
+            border-left: 4px solid #6200EA;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 5px 5px 0;
+        }
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        pre {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        .important {
+            background-color: #FFF3E0;
+            border-left: 4px solid #FF9800;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .note {
+            background-color: #E8F5E9;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .troubleshooting {
+            background-color: #E3F2FD;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            margin: 10px 0;
+        }
+        ol, ul {
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <h1>KSV Ticket Management System - XAMPP Installation Guide</h1>
+    
+    <div class="note">
+        <strong>Note:</strong> This guide is specifically for setting up the application on a local XAMPP environment with MySQL database.
+    </div>
+
+    <h2>Prerequisites</h2>
+    <ul>
+        <li>XAMPP installed on your computer (version 7.4 or higher recommended)</li>
+        <li>Basic knowledge of MySQL and PHP</li>
+        <li>The KSV Ticket Management System files</li>
+    </ul>
+
+    <h2>Step 1: Install/Configure XAMPP</h2>
+    <div class="step">
+        <h3>1.1 Install XAMPP (if not already installed)</h3>
+        <ol>
+            <li>Download XAMPP from <a href="https://www.apachefriends.org/download.html" target="_blank">https://www.apachefriends.org/download.html</a></li>
+            <li>Run the installer and follow the installation steps</li>
+            <li>Select at least Apache, MySQL, and PHP components during installation</li>
+        </ol>
+
+        <h3>1.2 Verify PHP Extensions</h3>
+        <p>Ensure these essential PHP extensions are enabled:</p>
+        <ol>
+            <li>Open XAMPP Control Panel</li>
+            <li>Click on "Config" next to Apache</li>
+            <li>Select "PHP (php.ini)"</li>
+            <li>Find and uncomment these lines (remove the semicolon at the beginning if present):
+                <pre>extension=mysqli
+extension=pdo_mysql</pre>
+            </li>
+            <li>Save the file and restart Apache</li>
+        </ol>
+    </div>
+
+    <h2>Step 2: Set Up the Database</h2>
+    <div class="step">
+        <h3>2.1 Start Apache and MySQL Services</h3>
+        <ol>
+            <li>Open XAMPP Control Panel</li>
+            <li>Start Apache and MySQL by clicking the "Start" buttons next to them</li>
+            <li>Both services should show a green background when running properly</li>
+        </ol>
+
+        <h3>2.2 Create the Database</h3>
+        <ol>
+            <li>Click the "Admin" button next to MySQL in XAMPP Control Panel (opens phpMyAdmin)</li>
+            <li>In phpMyAdmin, click "New" in the left sidebar</li>
+            <li>Enter database name: <code>ksv_ticket_system</code></li>
+            <li>Select collation: <code>utf8mb4_unicode_ci</code></li>
+            <li>Click "Create" button</li>
+        </ol>
+
+        <h3>2.3 Import the Database Schema</h3>
+        <ol>
+            <li>With the <code>ksv_ticket_system</code> database selected in phpMyAdmin</li>
+            <li>Click the "Import" tab at the top</li>
+            <li>Click "Browse" and select the <code>sql/mysql_database.sql</code> file from the application folder</li>
+            <li>Scroll down and click "Go" to import the schema and sample data</li>
+            <li>You should see a success message after the import completes</li>
+        </ol>
+    </div>
+
+    <h2>Step 3: Set Up the Application Files</h2>
+    <div class="step">
+        <h3>3.1 Copy Files to XAMPP htdocs</h3>
+        <ol>
+            <li>Copy all the application files from Replit</li>
+            <li>Paste them into a new folder in your XAMPP htdocs directory
+                <br>Example: <code>C:\xampp\htdocs\ksv_ticket_system\</code> (Windows)
+                <br>Example: <code>/Applications/XAMPP/htdocs/ksv_ticket_system/</code> (macOS)
+                <br>Example: <code>/opt/lampp/htdocs/ksv_ticket_system/</code> (Linux)
+            </li>
+        </ol>
+
+        <h3>3.2 Check File Permissions (Linux/macOS only)</h3>
+        <ol>
+            <li>Open terminal and navigate to your project folder</li>
+            <li>Ensure proper permissions with:
+                <pre>chmod -R 755 /path/to/xampp/htdocs/ksv_ticket_system
+chmod -R 777 /path/to/xampp/htdocs/ksv_ticket_system/attachments</pre>
+            </li>
+        </ol>
+    </div>
+
+    <h2>Step 4: Test the Database Connection</h2>
+    <div class="step">
+        <p>Before trying to use the full application, let's verify the database connection:</p>
+        <ol>
+            <li>Navigate to: <code>http://localhost/ksv_ticket_system/test_db_connection.php</code></li>
+            <li>This test file will show if your connection to MySQL is working</li>
+            <li>If successful, you'll see a "MySQL Connection Success!" message</li>
+            <li>If it fails, you'll see detailed error information to help troubleshoot</li>
+        </ol>
+    </div>
+
+    <h2>Step 5: Access the Application</h2>
+    <div class="step">
+        <ol>
+            <li>Open your web browser and navigate to: <code>http://localhost/ksv_ticket_system/</code></li>
+            <li>You should see the login page with KSV branding</li>
+            <li>Login with the default admin credentials:
+                <ul>
+                    <li>Username: <code>admin</code></li>
+                    <li>Password: <code>admin123</code></li>
+                </ul>
+            </li>
+            <li>After logging in, you should be redirected to the dashboard</li>
+        </ol>
+    </div>
+
+    <h2>Troubleshooting Common Issues</h2>
+    
+    <div class="troubleshooting">
+        <h3>Database Connection Issues</h3>
+        <p><strong>Problem:</strong> "Could not connect to the database. Please contact the system administrator."</p>
+        <p><strong>Solutions:</strong></p>
+        <ol>
+            <li><strong>Check MySQL Service:</strong> Ensure MySQL is running in XAMPP Control Panel (green background)</li>
+            <li><strong>Verify Database Exists:</strong> Check if <code>ksv_ticket_system</code> database exists in phpMyAdmin</li>
+            <li><strong>Database Credentials:</strong> Default XAMPP MySQL credentials are:
+                <ul>
+                    <li>Username: <code>root</code></li>
+                    <li>Password: <code></code> (empty string)</li>
+                </ul>
+                If you've set a different password for MySQL root user, update it in <code>includes/config.php</code>
+            </li>
+            <li><strong>Alternative Connection Test:</strong> Visit <code>http://localhost/ksv_ticket_system/alternative_connection.php</code> for detailed diagnostics</li>
+        </ol>
+
+        <h3>When Nothing Works:</h3>
+        <p>Try this manual connection approach:</p>
+        <ol>
+            <li>Create a new file called <code>direct_test.php</code> in your ksv_ticket_system folder</li>
+            <li>Add this code:
+<pre>&lt;?php
+// Direct MySQL connection test
+$servername = "localhost";
+$username = "root";
+$password = "";  // Use your actual password if you've set one
+$dbname = "ksv_ticket_system";
+
+// Create connection with mysqli
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully using mysqli!&lt;br>";
+
+// Test query
+$sql = "SHOW TABLES";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "Tables in database:&lt;br>";
+    while($row = $result->fetch_assoc()) {
+        echo "- " . $row["Tables_in_" . $dbname] . "&lt;br>";
+    }
+} else {
+    echo "No tables found";
+}
+$conn->close();
+?&gt;</pre>
+            </li>
+            <li>Access this file in your browser: <code>http://localhost/ksv_ticket_system/direct_test.php</code></li>
+        </ol>
+    </div>
+
+    <h2>Additional Configuration</h2>
+    <div class="important">
+        <h3>Custom MySQL Credentials</h3>
+        <p>If your MySQL setup uses different credentials:</p>
+        <ol>
+            <li>Open <code>includes/config.php</code></li>
+            <li>Find the local XAMPP configuration section</li>
+            <li>Update the credentials as needed:
+<pre>// Local XAMPP (MySQL) configuration
+define('DB_HOST', 'localhost');
+define('DB_USER', 'your_username');  // Change this if not using 'root'
+define('DB_PASS', 'your_password');  // Change this if not using empty password
+define('DB_NAME', 'ksv_ticket_system');
+define('DB_PORT', '3306');
+define('DB_TYPE', 'mysql');</pre>
+            </li>
+        </ol>
+    </div>
+
+    <div class="note">
+        <h3>Default User Accounts</h3>
+        <p>After setting up the database, these user accounts are available:</p>
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Role</th>
+            </tr>
+            <tr>
+                <td>admin</td>
+                <td>admin123</td>
+                <td>Administrator</td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Final Notes</h2>
+    <ul>
+        <li>The application is configured to automatically detect if it's running on localhost/XAMPP and use MySQL settings</li>
+        <li>When deployed to a cloud environment, it will use PostgreSQL settings</li>
+        <li>For security, consider changing the default admin password after first login</li>
+    </ul>
+</body>
+</html>

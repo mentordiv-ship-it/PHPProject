@@ -1,0 +1,22 @@
+
+Unit I:
+[Weightage=25% approx., Lectures=7, Practicals=14] Introduction of Data Structure: The concept of data structure, Primitive data structure, Non Primitive data structure, Linear and Non-Linear Data structure, Static and Dynamic Memory Allocation.
+Array: Array terminologies, addressing system of an array, Advantages and Disadvantages of an array, Array applications, Array Operations (Insert, Delete, Search).
+
+
+
+Unit II:
+[Weightage=25% approx., Lectures=8, Practicals=16]
+Stack:
+	Introduction to Stack,
+		Operations on Stack:
+		PUSH,
+		POP,
+		PEEP and
+		CHANGE,
+	Evaluation of Arithmetic Expression,
+	Infix-Prefix-Postfix notations,
+	Conversion from Infix to Prefix,
+	Conversion from Infix to Postfix,
+	Evaluation of postfix expression,
+	Application of Stack.

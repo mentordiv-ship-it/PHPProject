@@ -1,0 +1,22 @@
+Unit I [Weightage=25% approx., Lectures=7, Practicals=14]
+Introduction to NoSQL and MongoDB
+Introduction to MongoDB, Overview of Database Types (Relational vs. NoSQL), Use Cases and
+Advantages of MongoDB.
+MongoDB Installation and Setup: Installing MongoDB on Various Platforms (Windows,
+macOS, Linux), Basic Configuration and Startup, MongoDB Shell (mongosh), Overview
+MongoDB Compass.
+Unit II [Weightage=25% approx., Lectures=7, Practicals=14]
+MongoDB Architecture: MongoDB Data Model (Documents, Collections), Database
+Architecture (Replica Sets, Sharding), Storage Engine and Performance.
+CRUD Operations: Create, Read, Update, Delete Operations, Querying Documents, Indexing
+and Performance Tuning.
+
+Unit III: [Weightage=25% approx., Lectures=8, Practicals=161
+Data Modeling: Schema Design and Best Practices, Embedding vs. Referencing, Normalization
+and Denormalization.
+Designing Schemas: Designing Schemas for Various Use Cases, Implementing Embedded and
+Referenced Documents, Schema Validation Implementation.
+Unit IV: [Weightage=25% approx., Lectures=8, Practicals=16]
+Aggregation Framework: Introduction to Aggregation, Pipeline Stages (Match, Group, Project,
+Sort, etc.), Advanced Aggregation Topics, Building Aggregation Pipelines, Complex Aggregation
+Scenarios, Performance Tuning for Aggregations.
